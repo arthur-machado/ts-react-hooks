@@ -4,6 +4,8 @@ interface UserProps {
   name: string;
   login: string;
   avatar_url: string;
+  followers: number;
+  public_repos: number;
 }
 
 const UseRef: React.FC = () => {
@@ -41,11 +43,17 @@ const UseRef: React.FC = () => {
       <ul>
         {userData && (
           <>
-            <li>
-              <img src={userData?.avatar_url} alt="User avatar" />
+            <li style={{ listStyle: 'none' }}>
+              <img
+                src={userData?.avatar_url}
+                alt="User avatar"
+                style={{ width: '100px', height: '100px', borderRadius: '50%' }}
+              />
             </li>
             <li>{userData?.name}</li>
             <li>{userData?.login}</li>
+            <li>Seguidores: {userData?.followers}</li>
+            <li>Repositórios públicos: {userData?.public_repos}</li>
           </>
         )}
       </ul>
