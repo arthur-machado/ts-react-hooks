@@ -17,7 +17,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <ThemeContextProvider value={{ theme: theme, setTheme: toggle }}>
+    <ThemeContextProvider value={{ theme: theme }}>
       <UseState />
       <UseRef />
       <UseContext />

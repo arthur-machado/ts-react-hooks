@@ -12,7 +12,7 @@ interface Themes {
 
 interface ThemeContextTypes {
   theme: Themes;
-  setTheme: (Themes: Themes) => void;
+  setTheme?: (Themes: Themes) => void;
 }
 
 export const ThemeContext = createContext<ThemeContextTypes | null>(null);
