@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 interface UserProps {
   name: string;
@@ -9,6 +10,7 @@ interface UserProps {
 const UseState: React.FC = () => {
   const [userData, setUserData] = useState<UserProps>();
   const [searchQuery, setSearchQuery] = useState('');
+  const context = useContext(ThemeContext);
 
   async function loadData(userQuery: string) {
     const response = await fetch(`https://api.github.com/users/${userQuery}`);
@@ -23,7 +25,12 @@ const UseState: React.FC = () => {
   }
 
   return (
-    <>
+    <div
+      style={{
+        backgroundColor: `${context?.theme.background}`,
+        color: `${context?.theme.text}`,
+      }}
+    >
       <h3>Exemplo com useState</h3>
       <div>
         <label>Usuário Github: </label>
@@ -47,7 +54,7 @@ const UseState: React.FC = () => {
         )}
       </ul>
       <hr />
-    </>
+    </div>
   );
 };
 

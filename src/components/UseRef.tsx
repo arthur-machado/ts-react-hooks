@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 interface UserProps {
   name: string;
   login: string;
@@ -11,6 +11,7 @@ interface UserProps {
 const UseRef: React.FC = () => {
   const [userData, setUserData] = useState<UserProps>();
   const [searchQuery, setSearchQuery] = useState('');
+  const context = useContext(ThemeContext);
   // Cria a referência ao elemento Input
   const inputText = useRef<HTMLInputElement>(null);
 
@@ -32,7 +33,12 @@ const UseRef: React.FC = () => {
   });
 
   return (
-    <>
+    <div
+      style={{
+        backgroundColor: `${context?.theme.background}`,
+        color: `${context?.theme.text}`,
+      }}
+    >
       <h3>Exemplo com useRef</h3>
       <div>
         <label>Usuário Github: </label>
@@ -58,7 +64,7 @@ const UseRef: React.FC = () => {
         )}
       </ul>
       <hr />
-    </>
+    </div>
   );
 };
 
