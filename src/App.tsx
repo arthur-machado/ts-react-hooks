@@ -29,6 +29,7 @@ const App: React.FC = () => {
         <input type="text" onChange={handleInputChange} />
         <button onClick={() => loadData(searchQuery)}>Buscar</button>
       </div>
+      <hr />
       <ul>
         {userData &&
           <>
