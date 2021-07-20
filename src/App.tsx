@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import UseContext from './components/UseContext';
-import UseRef from './components/UseRef';
-import UseState from './components/UseState';
+import Layout from './components/LayoutComponent';
 import { ThemeContextProvider } from './context/ThemeContext';
 import { darkTheme, lightTheme } from './themes';
 
@@ -18,9 +16,7 @@ const App: React.FC = () => {
 
   return (
     <ThemeContextProvider value={{ theme: theme }}>
-      <UseState />
-      <UseRef />
-      <UseContext />
+      <Layout />
       <button onClick={toggle}>Trocar tema</button>
     </ThemeContextProvider>
   );
