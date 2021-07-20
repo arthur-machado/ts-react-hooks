@@ -16,7 +16,12 @@ interface Cart {
 }
 
 const CartContext = createContext<Cart>({
-  products: [],
+  /* Cria um produto que poderá 
+  ser lido pelos filhos */
+  products: [
+    { id: 1, name: 'Produto1', price: 0 },
+    { id: 2, name: 'Produto2', price: 0 },
+  ],
   shippingValue: 0,
 });
 
