@@ -12,7 +12,7 @@ interface Themes {
 
 interface ThemeContextTypes {
   theme: Themes;
-  setTheme?: (Themes: Themes) => void;
+  setTheme?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const ThemeContext = createContext<ThemeContextTypes | null>(null);

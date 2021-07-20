@@ -15,9 +15,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <ThemeContextProvider value={{ theme: theme }}>
+    <ThemeContextProvider value={{ theme: theme, setTheme: toggle }}>
       <Layout />
-      <button onClick={toggle}>Trocar tema</button>
     </ThemeContextProvider>
   );
 };
