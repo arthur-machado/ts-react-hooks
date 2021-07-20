@@ -1,25 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+interface UserProps {
+  name: string;
+  login: string;
+  avatar_url: string;
+}
+
+const App: React.FC = () => {
+  const [userData, setUserData] = useState<UserProps>();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  async function loadData(userQuery: string) {
+    const response = await fetch(`https://api.github.com/users/${userQuery}`)
+    const data = await response.json();
+
+    setUserData(data);
+  }
+
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    let query = e.target.value;
+    setSearchQuery(query);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <label>Usuário Github: </label>
+        <input type="text" onChange={handleInputChange} />
+        <button onClick={() => loadData(searchQuery)}>Buscar</button>
+      </div>
+      <ul>
+        {userData &&
+          <>
+            <li><img src={userData?.avatar_url} alt="User avatar" /></li>
+            <li>{userData?.name}</li>
+            <li>{userData?.login}</li>
+          </>
+        }
+      </ul>
+    </>
   );
 }
 
