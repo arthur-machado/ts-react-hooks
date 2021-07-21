@@ -11,17 +11,13 @@ import UseReducer from '../UseReducer';
 const Layout: React.FC = () => {
   const themeContext = useContext(ThemeContext);
   return (
-    <Container
-      backgroundTheme={themeContext?.theme.background}
-      textColor={themeContext?.theme.text}
-      blue={themeContext?.theme.blue}
-    >
+    <Container theme={themeContext?.theme}>
       <UseState />
       <UseRef />
       <UseContext />
       <UseCallback />
       <UseReducer />
-      <Button onClick={themeContext?.setTheme} blue={themeContext?.theme.blue}>
+      <Button onClick={themeContext?.setTheme} theme={themeContext?.theme}>
         Trocar tema
       </Button>
     </Container>

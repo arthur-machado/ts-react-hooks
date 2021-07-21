@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 
-interface Themes {
+export interface Themes {
   theme_name: string;
   text: string;
   background: string;

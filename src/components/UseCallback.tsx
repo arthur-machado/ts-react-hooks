@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 const UseCallback: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -25,8 +26,15 @@ const UseCallback: React.FC = () => {
     setCount(count + 1);
   };
 
+  const context = useContext(ThemeContext);
+
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: `${context?.theme.background}`,
+        color: `${context?.theme.text}`,
+      }}
+    >
       <h3>Exemplo com UseCallback</h3>
       <span>(Observar o console para ver isso funcionar)</span>
       <p>Contador: {count}</p>

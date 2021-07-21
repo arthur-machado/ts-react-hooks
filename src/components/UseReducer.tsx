@@ -1,4 +1,5 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 /* enumera os tipos de ações */
 enum CountActionsTypes {
@@ -33,8 +34,15 @@ const counterReducer = (state: CountState, action: CountAction) => {
 
 const UseReducer: React.FC = () => {
   const [state, dispatch] = useReducer(counterReducer, { count: 0 });
+  const context = useContext(ThemeContext);
+
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: `${context?.theme.background}`,
+        color: `${context?.theme.text}`,
+      }}
+    >
       <h3>Exemplo com useReducer</h3>
       <p>Count: {state.count}</p>
       <button
