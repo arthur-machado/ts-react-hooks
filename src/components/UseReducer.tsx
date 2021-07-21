@@ -34,7 +34,7 @@ const counterReducer = (state: CountState, action: CountAction) => {
 const UseReducer: React.FC = () => {
   const [state, dispatch] = useReducer(counterReducer, { count: 0 });
   return (
-    <>
+    <div>
       <h3>Exemplo com useReducer</h3>
       <p>Count: {state.count}</p>
       <button
@@ -51,7 +51,7 @@ const UseReducer: React.FC = () => {
       >
         Diminuir
       </button>
-    </>
+    </div>
   );
 };
 

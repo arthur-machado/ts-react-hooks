@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Layout from './components/LayoutComponent';
+import GlobalStyles from './styles/GlobalStyles';
+import Layout from './components/Layout/LayoutComponent';
 import { ThemeContextProvider } from './context/ThemeContext';
 import { darkTheme, lightTheme } from './themes';
 
@@ -16,6 +17,7 @@ const App: React.FC = () => {
 
   return (
     <ThemeContextProvider value={{ theme: theme, setTheme: toggle }}>
+      <GlobalStyles />
       <Layout />
     </ThemeContextProvider>
   );
