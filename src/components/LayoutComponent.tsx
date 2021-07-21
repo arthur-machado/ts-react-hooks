@@ -4,6 +4,7 @@ import UseRef from './UseRef';
 import UseContext from './UseContext';
 import UseState from './UseState';
 import UseCallback from './UseCallback';
+import UseReducer from './UseReducer';
 
 const Layout: React.FC = () => {
   const themeContext = useContext(ThemeContext);
@@ -21,6 +22,7 @@ const Layout: React.FC = () => {
       <UseRef />
       <UseContext />
       <UseCallback />
+      <UseReducer />
       <button
         onClick={themeContext?.setTheme}
         style={{
@@ -31,7 +33,7 @@ const Layout: React.FC = () => {
           outline: 'none',
           border: 'none',
           cursor: 'pointer',
-          margin: '0 40%',
+          margin: '20px 40%',
           width: '120px',
         }}
       >

@@ -33,6 +33,7 @@ const UseCallback: React.FC = () => {
       <button onClick={incrementar}>Incrementar</button>
       <button onClick={callbackNaoAtualizado}>Sem Callback</button>
       <button onClick={callbackAtualizado}>Com Callback</button>
+      <hr />
     </div>
   );
 };
