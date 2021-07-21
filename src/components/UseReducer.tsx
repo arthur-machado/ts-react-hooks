@@ -1,26 +1,31 @@
 import React, { useReducer } from 'react';
 
+/* enumera os tipos de ações */
 enum CountActionsTypes {
   increase = 'increase',
   decrease = 'decrease',
 }
 
+/* Define o tipo das ações e 'payload' referente a 
+quanto queremos aumentar/diminuir */
 interface CountAction {
   type: CountActionsTypes;
   payload: number;
 }
 
+/* Define a tipagem do número */
 interface CountState {
   count: number;
 }
 
+/* cria a função reducer */
 const counterReducer = (state: CountState, action: CountAction) => {
   const { type, payload } = action;
   switch (type) {
     case CountActionsTypes.increase:
-      return { ...state, count: state.count + payload };
+      return { count: state.count + payload };
     case CountActionsTypes.decrease:
-      return { ...state, count: state.count - payload };
+      return { count: state.count - payload };
     default:
       return state;
   }
