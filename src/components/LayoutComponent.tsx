@@ -3,6 +3,7 @@ import { ThemeContext } from '../context/ThemeContext';
 import UseRef from './UseRef';
 import UseContext from './UseContext';
 import UseState from './UseState';
+import UseCallback from './UseCallback';
 
 const Layout: React.FC = () => {
   const themeContext = useContext(ThemeContext);
@@ -19,6 +20,7 @@ const Layout: React.FC = () => {
       <UseState />
       <UseRef />
       <UseContext />
+      <UseCallback />
       <button
         onClick={themeContext?.setTheme}
         style={{
